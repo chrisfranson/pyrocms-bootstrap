@@ -4,15 +4,12 @@
 
 {{ theme:partial name="fluid/metadata" }}
 
-<!-- CSS Stylesheets -->
-{{ theme:css file="bootstrap.css" }}
-<style>
-	body {
-		padding-top: 60px;
-	}
-</style>
+<!-- Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Port+Lligat+Sans' rel='stylesheet' type='text/css'>
-{{ theme:css file="bootstrap-responsive-custom.css" }}
+
+<!-- CSS Stylesheets -->
+{{ theme:css file="bootstrap/bootstrap.css" }}
+{{ theme:css file="bootstrap/bootstrap-responsive-custom.css" }}
 {{ theme:css file="bootstrap-wysihtml5.css" }}
 {{ theme:css file="custom.css" }}
 
@@ -21,14 +18,11 @@
 <!--[if IE 8 ]><link href="assets/ie-fixes/IE8.css" type="text/css" rel="stylesheet" /><![endif]-->
 <!--[if IE 9 ]><link href="assets/ie-fixes/IE9.css" type="text/css" rel="stylesheet" /><![endif]-->
 
-<!-- <script src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script> -->
-
 <!-- HTML5 shim, for IE6-8 support of HTML elements -->
 <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-{{ theme:css file="home.css" }}
 {{ integration:analytics }}
 </head>
 
