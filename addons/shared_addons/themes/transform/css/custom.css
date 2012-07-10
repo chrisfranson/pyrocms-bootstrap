@@ -41,6 +41,14 @@ body {
 }
 
 /* Site-wide Navbar */
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover,
+.navbar .nav .current > a,
+.navbar .nav .current > a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #666;
+}
 .site-nav {
 	top: 78px;
 	z-index: 0;
