@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+{{ theme:partial name="fluid/metadata" }}
+
+<!-- CSS Stylesheets -->
+{{ theme:css file="bootstrap.css" }}
+<style>
+	body {
+		padding-top: 60px;
+	}
+</style>
+<link href='http://fonts.googleapis.com/css?family=Gudea:400,700' rel='stylesheet' type='text/css'>
+{{ theme:css file="Novecentowide-Normal.css" }}
+{{ theme:css file="bootstrap-responsive.css" }}
+{{ theme:css file="bootstrap-wysihtml5.css" }}
+{{ theme:css file="custom.css" }}
+
+<!-- Conditional Stylesheets for IE -->
+<!--[if IE 7 ]><link href="assets/ie-fixes/IE7.css" type="text/css" rel="stylesheet" /><![endif]-->
+<!--[if IE 8 ]><link href="assets/ie-fixes/IE8.css" type="text/css" rel="stylesheet" /><![endif]-->
+<!--[if IE 9 ]><link href="assets/ie-fixes/IE9.css" type="text/css" rel="stylesheet" /><![endif]-->
+
+<!-- <script src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script> -->
+
+<!-- HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+{{ theme:css file="home.css" }}
+{{ integration:analytics }}
+</head>
+
+<body>
+		
+{{ theme:partial name="fluid/site-nav" }}
+	
+<div class="container-fluid">
+
+{{ session:messages notice="alert" error="alert alert-error" success="alert alert-success" }}
+
+
+{{ if messages:error }}
+	<div class="alert alert-error">
+		<a class="close" data-dismiss="alert" href="#">×</a>
+		{{ messages:error }}
+	</div>
+{{ endif }}
+
+{{ if messages:notice }}
+	<div class="alert alert-notice">
+		<a class="close" data-dismiss="alert" href="#">×</a>
+		{{ messages:notice }}
+	</div>
+{{ endif }}
+
+{{ if messages:success }}
+	<div class="alert alert-success">
+		<a class="close" data-dismiss="alert" href="#">×</a>
+		{{ messages:success }}
+	</div>
+{{ endif }}

@@ -1,0 +1,54 @@
+</div><!-- .container-fluid -->
+
+{{ theme:partial name="fluid/footer" }}
+
+<!--[if lt IE 7 ]>
+	<script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+<![endif]-->
+
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+
+<script type="text/javascript">var SITE_URL = '{{ url:site }}';</script>
+{{ theme:js file="bootstrap.min.js" }}
+{{ theme:js file="jquery.scrollTo-min.js" }}
+{{ theme:js file="jquery.fitvids.js" }}
+{{ theme:js file="jquery.easing.js" }}
+{{ theme:js file="jquery.quicksand.js" }}
+{{ theme:js file="transform.js" }}
+
+{{ streams:form_assets }}
+
+	<div style="display:none" id="login-form" class="modal hide fade">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h2>You must log in to vote</h2>
+		</div>
+
+		<form action="{{ url:site }}users/login" method="post" accept-charset="utf-8" class="modal-body">
+			<ul class="modal-body">
+				<li id="messages">
+
+				</li>
+				<li>
+					<label for="email">E-mail</label>
+					<div class="input"><input type="text" id="email" name="email" maxlength="120"></div>
+				</li>
+				<li>
+					<label for="password">Password</label>
+					<div class="input"><input type="password" id="password" name="password" maxlength="20"></div>
+				</li>
+				<li>
+					<label><input type="checkbox" name="remember" value="1" class="inline">Remember Me</label>
+				</li>
+			</ul>
+			<div class="modal-footer">
+				<input type="submit" value="Log In" name="btnLogin" class="btn btn-primary">
+				<a class="btn" href="{{ url:site }}users/reset_pass">Forgot your password?</a>
+				<a class="btn btn-info register" href="{{ url:site }}grants/application/register">Register</a>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

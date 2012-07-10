@@ -1,0 +1,173 @@
+{{ theme:partial name="fluid/doc-top" }}
+
+	<!-- Video and Intro Narrative -->
+	<div class="row-fluid">
+		<div class="span8">
+			<iframe src="http://player.vimeo.com/video/{{ snippet:homepage_video_vimeo_id }}?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		</div>
+		<div class="span4 section-header intro-narrative">
+			<h1>{{ snippet:home_header }}</h1>
+			{{ snippet:home_page_text }}
+		</div>
+	</div>
+
+	<!-- Support Header -->
+	<div class="row-fluid section-header support-header">
+		<div class="span12">
+			
+			<div class="pull-right">
+				 <a class="btn more-applications" href="<?php echo site_url('applications') ?>">
+					<i class="icon-plus"></i>
+					More Applications
+				</a>
+			</div>
+
+			<div class="sort-by pull-right" style="width: 190px">
+				<strong>Sort by</strong>
+				<div class="btn-group pull-right">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="order-by">Recently Submitted</span>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu pull-right">
+						<li><a class="sort" data-sort="recent" data-limit="3">Recently Submitted</a></li>
+						<li><a class="sort" data-sort="popular" data-limit="3">Most Popular</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<h1>{{ if {helper:date format="U"} < 1339848000 }}Vote{{ else }}Volunteer{{ endif }}</h1>
+			<strong class="subheading">to support a project and get involved</strong>
+			<div class="span12 vote-snippet">
+				{{ if {helper:date format="U"} < 1339848000 }}
+					{{ snippet:vote }}
+				{{ else }}
+					{{ snippet:volunteer }}
+				{{ endif }}
+			</div>
+		</div>
+	</div>
+
+	<div class="row-fluid project-listing">
+		<div class="span12">
+
+			<div id="sort_stage">
+
+			<ul id="application-list" class="thumbnails row-fluid">
+				{{ grants:applications sort_by="recent" limit="3" }}
+
+					{{ entries }}
+
+						<li class="span4">
+							{{ grants:rating entry_id=id stream=grant:title_slug steps="1" }}
+								<div class="thumbnail app_thumb {{ status }}">{{# status' value will be "on" if the item has the most votes in its category/stream #}}
+
+									<div class="app_preview" style="background-image: url(<?php echo site_url('files/thumb/{{ image }}/375'); ?>);"></div>
+
+									<div class="caption">
+										
+										<h4><a href="{{ site_url }}app/{{ shortcode }}">{{ title }}</a>
+												{{ if {helper:date format="U"} < 1339848000 }}
+													<span class="pull-right" data-total-votes="{{ total_votes }}">{{ total_votes }} votes</span>
+												{{ endif }}
+										</h4>
+										<h5>{{ location:value }} County</h5>
+
+										<p class="summary-description">{{ description }}</p>
+										
+										<p><a data-vote="{{ url }}" href="{{ current_url }}#" class="btn {{ user_voted_class }} btn-large btn-vote">{{ user_has_voted }}</a></p>
+
+										<p>
+									{{ /grants:rating }}
+
+									<a name="fb_share" type="button" share_url="{{ url:site }}app/{{ shortcode }}"></a>
+									{{ grants:twitter_button title=title shortcode=shortcode }}
+
+									</div>
+								
+								</div>
+
+						</li>
+
+					{{ /entries }}
+
+				{{ /grants:applications }}
+			</ul>
+
+			</div><!--#sort_stage-->
+
+		</div> <!-- .span12 -->
+	</div>
+
+	{{# <div class="row-fluid section-header apply-header">
+		<div class="span12">
+
+			<div class="btn-group pull-right">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="icon-file"></i>
+					<span>Download Request for Proposals</span>
+					<span class="caret"></span>
+				</a>
+				
+				<ul class="dropdown-menu pull-right">
+					<li><a href="downloads/RFP.pdf">RFP</a></li>
+					<li><a href="downloads/Appendix.pdf">Appendix</a></li>
+					<li><a href="downloads/Backgrounder.pdf">Backgrounder</a></li>
+					<li><a href="downloads/transform_wi_files.zip">All Files (.zip)</a></li>
+				</ul>
+			
+			</div>
+		
+			<h1>Apply</h1>
+			<strong class="subheading">to lead a project near you</strong>
+			<div class="span12 apply-snippet">{{ snippet:apply }}</div>
+		</div>
+	</div> #}}
+
+	{{# <div class="row-fluid project-selection">
+				
+		{{ streams:cycle stream="grants" namespace="grants" }}
+		<div class="span6 clearfix">
+			<a class="apply-link" href="apply/{{ title_slug }}">
+				<div class="project thumbnail clearfix">
+					{{ theme:image file='grant-icons/{{ title_slug }}.png' class='pull-left' }}
+					<h2>{{ title }}</h2>
+					<strong class="amount">{{ byline }}</strong>
+					<p>{{ summary }}</p>
+				</div>
+			</a>
+		</div>
+
+		{{ if odd_even=='even' }}
+		
+	</div> <!-- row-fluid project-selection -->
+
+	<div class="row-fluid project-selection">
+
+		{{ endif }}
+
+		{{ /streams:cycle }}
+
+	</div> <!-- row-fluid project-selection --> #}}
+	
+	<p class="tagline">
+		Be part of the transformation!
+	</p>
+
+<script>
+	// nav links that scrollTo page sections
+	$('.home-navlink a').click(function() {
+		$.scrollTo(0, {duration: 500});
+		return false;
+	});
+	$('.support-navlink a, a.support-section-link').click(function() {
+		$.scrollTo($('div.support-header'), {duration: 500, offset: -90});
+		return false;
+	});
+	$('.apply-navlink a, a.apply-section-link').click(function() {
+		$.scrollTo($('div.apply-header'), {duration: 500, offset: -90});
+		return false;
+	});
+</script>
+
+{{ theme:partial name="fluid/doc-bottom" }}

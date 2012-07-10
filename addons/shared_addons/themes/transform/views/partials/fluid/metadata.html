@@ -1,0 +1,25 @@
+<!-- Meta data -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<base href="<?php echo base_url(); ?>" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+<script>var ACCEPT_APPLICATIONS = {{ if {helper:date format="U"} < 1339848000 }} true {{ else }} false {{ endif }};</script>
+
+{{ template:metadata }}
+
+<title>{{ settings:site_name }}&nbsp;&bull;&nbsp;{{ template:title }}</title>
+
+{{ if {url:segments segment="1"} == '' }}
+<meta property="fb:app_id"               content="345283295530852">
+<meta property="og:type"                 content="website"> 
+<meta property="og:url"                  content="http://transformwi.com">
+<meta property="og:site_name"            content="TransformWI">
+<meta property="og:image"                content="{{ theme:image_url file="transformwi_logo.png" }}">
+<meta property="og:description"          content="Projects are popping everywhere to make Wisconsin a healthier place to live. Parents, farmers, landlords, schools, are all joining together to find solutions that work for Wisconsin.">
+<meta property="og:title"          		content="The Transform Wisconsin Fund">
+{{ endif }}
