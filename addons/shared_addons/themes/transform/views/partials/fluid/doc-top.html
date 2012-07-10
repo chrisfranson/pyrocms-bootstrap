@@ -10,7 +10,7 @@
 <!-- CSS Stylesheets -->
 {{ theme:css file="bootstrap/bootstrap.css" }}
 {{ theme:css file="bootstrap/bootstrap-responsive-custom.css" }}
-{{ theme:css file="bootstrap-wysihtml5.css" }}
+{{ theme:css file="plugins/bootstrap-wysihtml5.css" }}
 {{ theme:css file="custom.css" }}
 
 <!-- Conditional Stylesheets for IE -->
@@ -24,6 +24,7 @@
 <![endif]-->
 
 {{ integration:analytics }}
+
 </head>
 
 <body>
@@ -35,7 +36,6 @@
 <div class="container-fluid">
 
 {{ session:messages notice="alert" error="alert alert-error" success="alert alert-success" }}
-
 
 {{ if messages:error }}
 	<div class="alert alert-error">
