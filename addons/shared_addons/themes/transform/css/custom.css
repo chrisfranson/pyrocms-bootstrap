@@ -82,6 +82,9 @@ body {
 	color: #fff;
 }
 
+.site-nav .navbar-inner ul.nav {
+	margin-left: 20px;
+}
 
 
 /* Site-wide Footer */
