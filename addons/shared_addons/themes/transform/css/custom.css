@@ -129,3 +129,28 @@ footer .page-chunk .error {
   margin-right: -20px;
   margin-left: -20px;
 }
+
+/* Common Components */
+.jumbotron h1 {
+	font-size: 81px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 1;
+	margin-bottom: 9px;
+}
+.masthead p {
+	font-size: 30px;
+	line-height: 36px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.masthead h1, .masthead p {
+	text-align: center;
+}
+.jumbotron p {
+	font-weight: 300;
+	margin-bottom: 18px;
+}
+p {
+	margin: 0 0 9px;
+}
