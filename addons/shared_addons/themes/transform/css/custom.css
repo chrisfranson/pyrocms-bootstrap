@@ -85,8 +85,12 @@ body {
 footer {
 	margin-top: 4em;
 	background-color: #333;
-	padding-top: 20px;
+	padding: 80px 0;
 	color: #fff;
+}
+
+footer .footer-inner {
+	margin: 0 40px;
 }
 
 footer p {
@@ -117,7 +121,6 @@ footer .page-chunk .error {
 
 
 /* Custom Responsive */
-
 
 .site-header,
 .site-header-inner,
