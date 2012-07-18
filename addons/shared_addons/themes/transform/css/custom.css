@@ -37,7 +37,7 @@ footer ul {
 footer .quick-map {
 	margin-bottom: 2em;
 }
-footer .quick-map ul {
+footer .quick-map ul.footer-nav-list {
 	margin-top: 1em;
 }
 footer .map {
