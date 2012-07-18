@@ -25,4 +25,18 @@ $(function(){
 		return false;
 	});
 
+
+	$('a.gmap-link').hover(
+		function() {
+			$(this).find('img').attr('src', function(index, attr) {
+				return attr.replace('tan', 'color');
+			});
+		},
+		function() {
+			$(this).find('img').attr('src', function(index, attr) {
+				return attr.replace('color', 'tan');
+			});
+		}
+	);
+
 });
