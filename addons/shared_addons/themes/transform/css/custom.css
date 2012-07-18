@@ -86,3 +86,8 @@ header.jumbotron {
 p {
 	margin: 0 0 9px;
 }
+
+/* Login Page */
+form ul.form_list {
+	list-style: none;
+}
