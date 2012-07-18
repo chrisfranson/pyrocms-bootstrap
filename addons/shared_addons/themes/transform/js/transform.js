@@ -39,4 +39,8 @@ $(function(){
 		}
 	);
 
+	setTimeout(function() {
+		$('div.alert').fadeOut('slow');
+	}, 4000);
+
 });
