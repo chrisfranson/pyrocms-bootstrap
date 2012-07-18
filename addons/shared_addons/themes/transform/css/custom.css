@@ -1,85 +1,15 @@
 body {
-	padding-top: 140px;
+	padding-top: 60px;
 	min-width: 250px;
 }
 
-/* Site-wide Header */
-.site-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 78px;
-	background-color: #000;
+/* Navbar */
+a.brand img.logo {
+	margin: -8px 0;
 }
-.site-header .header-inner {
-	padding: 12px 20px 0 20px;
-}
-
-.site-header .brand:hover {
-  text-decoration: none;
-}
-
-.site-header .brand {
-  display: block;
-  float: none;
-  padding: 0px 0px 4px 20px;
-  margin-left: -20px;
-  font-size: 26px;
-/*  font-family: 'Port Lligat Sans', sans-serif;*/
-  line-height: 1;
-  color: #eee;
-}
-
-.site-header h2.slogan {
-	display: block;
-	font-size: 15px;
-	line-height: 1;
-	font-weight: normal;
-	color: #ccc;
-	margin: 4px 0 0 10px;
-}
-
-/* Site-wide Navbar */
 .navbar .nav .active > a,
-.navbar .nav .active > a:hover,
-.navbar .nav .current > a,
-.navbar .nav .current > a:hover {
-  color: #ffffff;
-  text-decoration: none;
-  background-color: #666;
-}
-.site-nav {
-	top: 78px;
-	z-index: 0;
-}
-.site-nav .navbar-inner {
-	color: #fff;
-	padding-left: 20px;
-	padding-right: 20px;
-	background-color: #2c2c2c;
-	background-image: -moz-linear-gradient(top, #999999, #888888);
-	background-image: -ms-linear-gradient(top, #999999, #888888);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#999999), to(#888888));
-	background-image: -webkit-linear-gradient(top, #999999, #888888);
-	background-image: -o-linear-gradient(top, #999999, #888888);
-	background-image: linear-gradient(top, #999999, #888888);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888888', endColorstr='#888888', GradientType=0);
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-	-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-	box-shadow:0 1px 3px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-}
-.site-nav .navbar-inner ul.nav > li > a {
-	color: #fff;
-}
-
-.site-nav .navbar-inner ul.nav {
-	margin-left: 20px;
-}
-
-.site-nav .navbar-inner ul.nav {
-	margin-left: 20px;
+.navbar .nav .active > a:hover {
+    background-color: #222222 !important;
 }
 
 /* Site-wide Footer */

@@ -136,14 +136,14 @@
 }
 
 @media (max-width: 767px) {
-  body,
-  .site-header {
+  body {
     padding-right: 20px;
     padding-left: 20px;
   }
-  footer {
-	  margin-right: -20px;
-	  margin-left: -20px;
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    margin-right: -20px;
+    margin-left: -20px;
   }
   .container-fluid {
     padding: 0;
@@ -434,17 +434,6 @@
   }
 }
 
-@media (min-width: 768px) {
-	.site-header {
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-	}
-	.site-nav .navbar-inner .container-fluid {
-		padding-left: 0px !important;
-		padding-right: 0px !important;
-	}
-}
-
 @media (min-width: 1200px) {
   .row {
     margin-left: -30px;
@@ -690,34 +679,13 @@
   }
 }
 
-@media (max-width: 499px) {
-  .site-header a.brand {
-    font-size: 22px;
-  }
-  .site-header h2.slogan {
-    font-size: 14px !important;
-  }
-}
-
-@media (max-width: 350px) {
-  .user-dropdown-text {
-	display: none;
-  }
-}
-
-@media (max-width: 299px) {
+@media (max-width: 979px) {
   body {
-    padding-top: 0 !important;
-  }
-  .site-header,
-  ul.nav {
-	padding-left: 0px !important;
-	padding-left: 0px !important;
+    padding-top: 0;
   }
   .navbar-fixed-top,
-  .navbar-fixed-bottom,
-  .site-header {
-    position: static !important;
+  .navbar-fixed-bottom {
+    position: static;
   }
   .navbar-fixed-top {
     margin-bottom: 18px;
