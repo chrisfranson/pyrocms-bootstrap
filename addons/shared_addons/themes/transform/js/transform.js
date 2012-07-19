@@ -43,4 +43,10 @@ $(function(){
 		$('div.alert').fadeOut('slow');
 	}, 4000);
 
+
+	$('.gist > .page-chunk-pad').sticker({
+		yOffset: 60,
+		stopper: 'footer'
+	});
+
 });
