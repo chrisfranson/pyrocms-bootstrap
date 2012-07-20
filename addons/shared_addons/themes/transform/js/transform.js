@@ -50,4 +50,6 @@ $(function(){
 		revertLeft: 20
 	});
 
+	$('.popover').popover();
+
 });
