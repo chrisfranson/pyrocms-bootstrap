@@ -91,3 +91,8 @@ p {
 form ul.form_list {
 	list-style: none;
 }
+
+.sticky {
+	margin-bottom: 1em;
+	padding-left: 10px;
+}
