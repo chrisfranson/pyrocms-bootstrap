@@ -44,9 +44,10 @@ $(function(){
 	}, 4000);
 
 
-	$('.gist > .page-chunk-pad').sticker({
+	$('.sticky').sticker({
 		yOffset: 60,
-		stopper: 'footer'
+		stopper: 'footer',
+		revertLeft: 20
 	});
 
 });
