@@ -55,8 +55,9 @@ footer .gmap-link img {
 
 
 /* Headings */
-.page-chunk h2 {
-	color: #669900;
+.page-chunk h2,
+.page-chunk h3 {
+	color: #690;
 }
 
 /* Common Components */
