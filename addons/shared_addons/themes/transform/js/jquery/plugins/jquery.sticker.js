@@ -1,5 +1,5 @@
 /*!
- * jQuery Sticker - v0.1 - 7/10/2012
+ * jQuery Sticker - v0.2 - 7/21/2012
  * https://github.com/chrisfranson/jquery-sticker
  * 
  * Copyright (c) 2012 Chris Franson
@@ -28,30 +28,17 @@
 
 				// Calculate the window.scrollTop() value for which to fix the sticker
 				stickerSettings.scrollThreshold = (stickerSettings.yOffset * -1) + $sticker.offset().top - parseInt($sticker.css('margin-top'), 10);
-				
+
 				// Create an invisible placeholder to preserve the page's layout when we switch
-				// the sticker's position to 'fixed'
-				$sticker.data('placeholder', $('<div>')
-					// Set layout CSS to be the same as the original, but make it invisible
-					.css({
-						position: $sticker.css('position'),
-						marginLeft: $sticker.css('marginLeft'),
-						marginRight: $sticker.css('marginRight'),
-						marginTop: $sticker.css('marginTop'),
-						'float': $sticker.css('float'),
-						visibility: 'hidden',
-						border: '1px solid red',
-						width: $sticker.css('width')
-					})
-					.height($sticker.outerHeight())
-					.hide()
+				// the sticker's position to 'fixed' and to get the right width when resizing a fluid layout
+				$sticker.data('placeholder',
+					$sticker.clone().css({ visibility: 'hidden', height: '1px' })
 				);
-				
+
 				// Add the hidden element to the DOM right now
-				$sticker.data('placeholder').insertBefore($sticker);
-				
+				$sticker.data('placeholder').insertAfter($sticker).children().remove();
+
 				// Remember some layout CSS for when we switch the position back to the original position
-				// This should be a call to a method
 				$sticker.data('originalLayout', {
 					position: $sticker.css('position'),
 					top: $sticker.css('top'),
@@ -60,13 +47,12 @@
 
 				// If a stopper (element or integer) is provided, we have to do some funky stuff in order to
 				// butt the bottom of the sticker up against the top of the stopper. This is because
-				// we don't know if the sticker's parents have a position other than static.
+				// the sticker's parents may have a position other than static.
 				if (settings.stopper) {
 
 					// Calculate the window.scrollTop() value for which to make the sticker's bottom
 					// butt up against the top of the stopper
 					stickerSettings.stopperTop = ($.isNumeric(settings.stopper)) ? settings.stopper : $(settings.stopper).offset().top;
-					
 					stickerSettings.stopperTop -= (stickerSettings.yOffset
 												   + $sticker.outerHeight()
 						 						   + parseInt($sticker.css('margin-top'), 10)
@@ -78,34 +64,47 @@
 				$(window).resize(
 					$.throttle(100, function() {
 
-						// This should be a call to a method
 						var $placeholder = $sticker.data('placeholder');
+
+						if (parseInt($sticker.css('left'), 10) <= 20) {
+							var originalLayout = $sticker.data('originalLayout');
+							$sticker.css('position', originalLayout.position);
+						}
+
 						$sticker.css({
 							left: $placeholder.offset().left - parseInt($placeholder.css('margin-left'), 10)
 						});
-						
+						$sticker.width($placeholder.width());
+
 						// Calculate the window.scrollTop() value for which to make the sticker's bottom
 						// butt up against the top of the stopper
 						stickerSettings.stopperTop = ($.isNumeric(settings.stopper)) ? settings.stopper : $(settings.stopper).offset().top;
-
 						stickerSettings.stopperTop -= (stickerSettings.yOffset
 													   + $sticker.outerHeight()
 							 						   + parseInt($sticker.css('margin-top'), 10)
 							 						   + parseInt($sticker.css('margin-bottom'), 10)
 													  );
-
+						$(window).scroll();
 					})
 				);
 
 				// At the beginning of scroll, update the layout CSS if the element has moved
 				$(window).scroll(
 					$.debounce(250, true, function() {
-						console.log('updating');
-						// This should be a call to a method
+
 						var $placeholder = $sticker.data('placeholder');
+
+						// Calculate the window.scrollTop() value for which to fix the sticker
+						var position = $sticker.css('position');
+						if (position == 'fixed' || position == 'absolute') stickerSettings.scrollThreshold = (stickerSettings.yOffset * -1) + $placeholder.offset().top - parseInt($sticker.css('margin-top'), 10);
+						else stickerSettings.scrollThreshold = (stickerSettings.yOffset * -1) + $sticker.offset().top - parseInt($sticker.css('margin-top'), 10);
+
+						// Set the $sticker's left and width based on the respective properties of the placeholder
 						$sticker.css({ 
 							left: $placeholder.offset().left - parseInt($placeholder.css('margin-left'), 10)
 						});
+						$sticker.width($placeholder.width());
+
 					})
 				);
 
@@ -116,8 +115,22 @@
 					// settings.throttle allows the user to specify how CPU intensive this effect should be
 					$.throttle(settings.throttle, function() {
 
-						// y = the current scroll position of the window
-						var y = $(this).scrollTop();
+						var y = $(this).scrollTop(), // y = the current scroll position of the window
+							$placeholder = $sticker.data('placeholder');
+
+						// For responsive layouts that collapse columns for small window widths.
+						// If the parent column is shifted to the left (at settings.reverLeft pixels),
+						// change the $sticker's position to its original properties
+						if (settings.revertLeft && $placeholder.offset().left <= settings.revertLeft) {
+
+							$sticker.css({
+								position: $placeholder.css('position'),
+								left: $placeholder.css('left'),
+								top: $placeholder.css('top')
+							});
+
+							return;
+						}
 
 						// If the user has scrolled below the threshold for stickiness
 						if (y >= stickerSettings.scrollThreshold) {
@@ -132,7 +145,7 @@
 										position: 'absolute'
 									})
 									.offset({
-										top: stickerSettings.yOffset + stickerSettings.stopperTop + parseInt($sticker.css('margin-bottom')),
+										top: stickerSettings.yOffset + stickerSettings.stopperTop,
 										left: $sticker.data('originalLayout').left + $sticker.css('margin-left')
 									});
 
@@ -143,29 +156,25 @@
 							else {
 
 								// Show the placeholder so that the sticker's parents don't change their width or height
-								$sticker.data('placeholder').show();
+								$placeholder.show();
 								
 								// Set the sticker's position to fixed, and its left and top to the proper values
 								$sticker.css({
 									position: 'fixed',
-									// left: $sticker.data('originalLayout').left,
-									left: $sticker.data('placeholder').offset().left,
+									left: $placeholder.offset().left,
 									top: stickerSettings.yOffset
 								});
 
 							}
 						}
-						
+
 						// If the user has scrolled above the threshold for stickiness
 						else {
 
 							// Set the sticker's CSS back to its original values for position and top
-							var originalLayout = $sticker.data('originalLayout')
+							var originalLayout = $sticker.data('originalLayout');
 							$sticker.css('position', originalLayout.position);
 							$sticker.css('top', originalLayout.top);
-							
-							// Hide the placeholder now that the sticker has its original position
-							$sticker.data('placeholder').hide();
 
 						}
 					})
@@ -185,3 +194,4 @@
 	};
 
 })(jQuery);
+
