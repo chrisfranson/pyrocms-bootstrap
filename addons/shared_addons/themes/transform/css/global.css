@@ -1,0 +1,45 @@
+/* Should go before bootstrap.css */
+.input-append button.add-on {
+    height: inherit !important;
+}
+
+/* Site-wide Footer */
+footer {
+	margin-top: 4em;
+	background-color: #333;
+	padding: 40px 0;
+	color: #fff;
+}
+
+footer .footer-inner {
+	margin: 0 40px;
+}
+
+footer p {
+	margin: 1em 20px;
+}
+footer a:hover {
+	color: #33B7F5;
+}
+footer ul {
+	list-style: none;
+	margin-bottom: .5em;
+}
+footer .quick-map {
+	margin-bottom: 2em;
+}
+footer .quick-map ul.footer-nav-list {
+	margin-top: 1em;
+}
+footer .map {
+	width: 286px;
+}
+footer .gmap-text-link {
+	display: block;
+	margin-top: .5em;
+	text-align: center;
+}
+footer .gmap-link img {
+	display: block;
+	border: 6px solid #444;
+}

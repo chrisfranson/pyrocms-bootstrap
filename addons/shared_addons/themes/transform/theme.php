@@ -3,11 +3,11 @@
 class Theme_transform extends Theme {
 
     public $name 				= 'Transform';
-    public $author 				= 'Transform WI';
+    public $author 				= 'Chris Franson';
     public $author_website 		= '';
-    public $website 			= 'transformwi.com';
+    public $website 			= 'http://github.com/chrisfranson';
     public $description 		= 'Based on Twitter Bootstrap and jQuery UI';
-    public $version 			= '0.2';
+    public $version 			= '0.4';
 	public $options 			= array(
 									'header' => array(
 										'title'         => 'Header',
@@ -26,6 +26,15 @@ class Theme_transform extends Theme {
 										'options'       => '',
 										'is_required'   => FALSE
 								   	),
+
+									'colors' => array(
+										'title'         => 'Color Scheme',
+										'description'   => 'What colors do you want?!',
+										'default'       => 'default',
+										'type'          => 'select',
+										'options'       => 'default=Default|olive=Olive|tan=Tan|warm=Warm|retro=Retro|pink=Pink',
+										'is_required'   => TRUE
+									),
 
 									'header_color' => array(
 										'title'         => 'Header Color',
