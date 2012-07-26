@@ -43,11 +43,16 @@ $(function(){
 		$('div.alert').fadeOut('slow');
 	}, 4000);
 
+	$('.user-dropdown .dropdown-toggle').dropdown();
 
 	$('.sticky').sticker({
 		yOffset: 60,
 		stopper: 'footer',
 		revertLeft: 20
+	});
+
+	$('.sticky-nav').sticker({
+		revertWindowWidth: 655
 	});
 
 	$('.popover-link').popover();

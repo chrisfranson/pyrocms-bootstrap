@@ -12,6 +12,10 @@ a.brand img.logo {
     background-color: #222222 !important;
 }
 
+.input-append button.add-on {
+    height: inherit !important;
+}
+
 /* Site-wide Footer */
 footer {
 	margin-top: 4em;

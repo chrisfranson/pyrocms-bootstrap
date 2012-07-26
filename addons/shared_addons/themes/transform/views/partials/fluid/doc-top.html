@@ -5,12 +5,40 @@
 {{ theme:partial name="fluid/metadata" }}
 
 <!-- Fonts -->
+{{ if theme:options:brand_font }}
+<link href='http://fonts.googleapis.com/css?family=<?php echo urlencode($this->theme->options->brand_font)?>' rel='stylesheet' type='text/css'>
+{{ else }}
 <link href='http://fonts.googleapis.com/css?family=Port+Lligat+Sans' rel='stylesheet' type='text/css'>
+{{ endif }}
 
 <!-- CSS Stylesheets -->
 {{ theme:css file="bootstrap.css" }}
 {{ theme:css file="bootstrap-responsive-custom.css" }}
+
+{{ if theme:options:header == 'yes' }}
+	{{ theme:css file="site-header.css" }}
+{{ else }}
+	{{ theme:css file="no-site-header.css" }}
+{{ endif }}
+
 {{ theme:css file="custom.css" }}
+
+<style>
+	a.brand {
+		{{ if theme:options:brand_font }} font-family: "{{ theme:options:brand_font }}"; {{ endif }}
+	}
+	.site-header {
+		{{ if theme:options:header_color }} background-color: {{ theme:options:header_color }}; {{ endif }}
+	}
+
+
+{{ if theme:options:sitewide_css }}
+	{{ theme:options:sitewide_css }}
+{{ endif }}
+
+</style>
+
+
 
 <!-- Conditional Stylesheets for IE -->
 <!--[if IE 7 ]><link href="assets/ie-fixes/IE7.css" type="text/css" rel="stylesheet" /><![endif]-->
@@ -27,6 +55,10 @@
 </head>
 
 <body>
+
+{{ if theme:options:header == 'yes' }}
+	{{ theme:partial name="fluid/site-header" }}
+{{ endif }}
 
 {{ theme:partial name="fluid/site-nav" }}
 	
