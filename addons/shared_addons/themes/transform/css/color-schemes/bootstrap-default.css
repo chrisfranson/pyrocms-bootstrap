@@ -4982,6 +4982,10 @@ a.badge:hover {
   visibility: hidden;
 }
 
+h2 {
+	color: #669900;
+}
+
 /* Site-wide Header */
 .site-header {
 	background-color: #000;
