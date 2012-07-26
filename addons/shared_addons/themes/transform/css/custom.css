@@ -93,7 +93,8 @@ p {
 }
 
 /* Login Page */
-form ul.form_list {
+form > ul,
+fieldset > ul {
 	list-style: none;
 }
 
