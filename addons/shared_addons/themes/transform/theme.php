@@ -38,12 +38,21 @@ class Theme_transform extends Theme {
 
 									'header_color' => array(
 										'title'         => 'Header Color',
-										'description'   => 'The background color for the site header.',
-										'default'       => '#000',
+										'description'   => 'Override the theme\'s background color for the site header.',
+										'default'       => '',
 										'type'          => 'text',
 										'options'       => '',
 										'is_required'   => FALSE
-								   	),
+									),
+
+									'footer_color' => array(
+										'title'         => 'Footer Color',
+										'description'   => 'Override the theme\'s background color for the site footer.',
+										'default'       => '',
+										'type'          => 'text',
+										'options'       => '',
+										'is_required'   => FALSE
+									),
 
 									'sitewide_css' => array(
 										'title'         => 'Site-wide CSS',
