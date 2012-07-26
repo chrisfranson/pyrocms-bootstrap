@@ -1,11 +1,22 @@
-/* Should go before bootstrap.css */
+/* This file should go before bootstrap.css */
+body {
+	padding-top: 60px;
+	min-width: 250px;
+}
+
+/* Navbar */
+a.brand img.logo {
+	margin: -8px 0;
+}
+
+/* For inputs with buttons attached to them (like the search input) */
 .input-append button.add-on {
     height: inherit !important;
 }
 
 /* Site-wide Footer */
 footer {
-	margin-top: 4em;
+	margin-top: 2em;
 	background-color: #333;
 	padding: 40px 0;
 	color: #fff;
@@ -42,4 +53,44 @@ footer .gmap-text-link {
 footer .gmap-link img {
 	display: block;
 	border: 6px solid #444;
+}
+
+
+/* Common Components */
+header.jumbotron {
+	margin-top: 16px;
+}
+.jumbotron h1 {
+	font-size: 81px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 1;
+	margin-bottom: 9px;
+}
+.masthead p {
+	font-size: 26px;
+	line-height: 36px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.masthead h1, .masthead p {
+	text-align: center;
+}
+.jumbotron p {
+	font-weight: 300;
+	margin-bottom: 18px;
+}
+p {
+	margin: 0 0 9px;
+}
+
+/* Remove bullets from forms with lists */
+form > ul,
+fieldset > ul {
+	list-style: none;
+}
+
+.sticky {
+	margin-bottom: 1em;
+	padding-left: 10px;
 }
