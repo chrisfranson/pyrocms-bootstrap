@@ -57,6 +57,13 @@ footer .gmap-link img {
 
 
 /* Common Components */
+
+.page h2 {
+	font-size: 18px !important;
+	line-height: 1.1 !important;
+	margin-bottom: 0.4em;
+}
+
 header.jumbotron {
 	margin-top: 16px;
 }
