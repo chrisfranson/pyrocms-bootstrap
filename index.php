@@ -1,20 +1,4 @@
 <?php
-
-# If you have already installed then delete this
-if ( ! file_exists('system/cms/config/database.php'))
-{
-	// Make sure we've not already tried this
-	if (strpos($_SERVER['REQUEST_URI'], 'installer/'))
-	{
-		header('Status: 404');
-		exit('PyroCMS is missing system/cms/config/database.php and cannot find the installer folder. Does your server have permission to access these files?');
-	}
-	
-	// Otherwise go to installer
-	header('Location: '.rtrim($_SERVER['REQUEST_URI'], '/').'/installer/');
-	exit;
-}
-
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
