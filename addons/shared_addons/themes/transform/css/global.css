@@ -43,7 +43,13 @@ footer .quick-map ul.footer-nav-list {
 	margin-top: 1em;
 }
 footer .map {
-	width: 286px;
+
+}
+footer p.wch-title {
+	margin-bottom: 0;
+}
+footer p.wch-address {
+	margin-top: 0;
 }
 footer .gmap-text-link {
 	display: block;
