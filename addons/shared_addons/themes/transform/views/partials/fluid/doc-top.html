@@ -19,26 +19,29 @@
 {{ endif }}
 
 {{ theme:css file="global.css" }}
-{{ theme:css file="/color-schemes/bootstrap-{{ theme:options:colors }}.css" }}
+{{ theme:css file="color-schemes/bootstrap-{{ theme:options:colors }}.css" }}
 {{ theme:css file="bootstrap-responsive-custom.css" }}
-
-{{# theme:css file="custom.css" #}}
 
 <style>
 	a.brand {
 		{{ if theme:options:brand_font }} font-family: "{{ theme:options:brand_font }}"; {{ endif }}
 	}
+
+	{{ if theme:options:header_color }}
 	.site-header {
-		{{ if theme:options:header_color }} background-color: {{ theme:options:header_color }}; {{ endif }}
+		background-color: {{ theme:options:header_color }};
 	}
+	{{ endif }}
+
+	{{ if theme:options:footer_color }}
 	footer {
-		{{ if theme:options:footer_color }} background-color: {{ theme:options:footer_color }}; {{ endif }}
+		background-color: {{ theme:options:footer_color }};
 	}
+	{{ endif }}
 
-
-{{ if theme:options:sitewide_css }}
-	{{ theme:options:sitewide_css }}
-{{ endif }}
+	{{ if theme:options:sitewide_css }}
+		{{ theme:options:sitewide_css }}
+	{{ endif }}
 
 </style>
 
