@@ -11,10 +11,7 @@
 	var BASE_URI = "/";
 </script>
 
-<link rel="canonical" href="<?php echo base_url(); ?>" />
-<link rel="alternate" type="application/rss+xml" title="{{ settings:site_name }}" href="<?php echo base_url(); ?>blog/rss/all.rss" />
-<meta name="keywords" content="<?php echo $this->_ci_cached_vars['page']->meta_keywords; ?>" />
-<meta name="description" content="<?php echo $this->_ci_cached_vars['page']->meta_description; ?>" />
+{{ template:metadata }}
 
 <title>{{ settings:site_name }}&nbsp;&bull;&nbsp;{{ template:title }}</title>
 
