@@ -29,6 +29,8 @@
 
 {{ theme:js file="transform.js" }}
 
+<?php echo $this->_ci_cached_vars['page']->js, "\n"; ?>
+
 {{ streams:form_assets }}
 
 	<div style="display:none" id="login-form" class="modal hide fade">
