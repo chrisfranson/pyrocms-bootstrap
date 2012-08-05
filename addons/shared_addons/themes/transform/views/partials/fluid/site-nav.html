@@ -1,0 +1,77 @@
+<div class="navbar{{ if theme:options:header == 'no' }} navbar-fixed-top{{ else }} sticky-nav{{ endif }}">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+
+			{{ if theme:options:header == 'no' }}
+
+			<a class="brand" href="/">
+				{{ theme:image file="logo.png" class="logo" }}
+				{{ settings:site_name }}
+			</a>
+
+			<div class="btn-group pull-right">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="icon-user"></i>
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					{{ if user:logged_in }}
+
+						<li><a href="{{ url:site }}edit-profile">Profile</a></li>
+
+						{{ if user:group == 'admin'  }}
+							<li><a href="{{ url:site }}admin" target="_blank">Admin</a></li>
+						{{ endif }}
+						<li class="divider"></li>
+						<li><a href="{{ url:site }}users/logout">Log Out</a></li>
+
+					{{ else }}
+
+						<li><a href="{{ url:site }}users/login">Log In</a></li>
+						<li><a href="{{ url:site }}users/register">Sign Up</a></li>
+
+					{{ endif }}
+				</ul>
+			</div>
+
+			{{ endif }}
+
+			<div class="nav-collapse">
+				<ul class="nav">
+					{{ navigation:links group="header" indent="tab" class="active" }}
+
+					{{ if children }}
+
+					<li class="dropdown {{ class }}">
+
+						<a class="dropdown-toggle" data-toggle="dropdown" href="{{ url }}">
+							{{ title }}
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+						{{ children }}
+							<li class="dropdown"><a href="{{ url }}">{{ title }}</a></li>
+						{{ /children }}
+						</ul>
+
+					</li>
+
+					{{ else }}
+
+					<li class="{{ class }}">
+						<a href="{{ url }}">{{ title }}</a>
+					</li>
+
+					{{ endif }}
+
+					{{ /navigation:links }}
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+</div>

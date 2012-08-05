@@ -1,0 +1,124 @@
+
+.apply-section-link, .support-section-link {
+	color: #e05425;
+	font-weight: bold;
+}
+
+div.vote-snippet, div.apply-snippet {
+	color: green;
+	margin-left: 0;
+}
+
+
+/* Section header rows */
+.section-header {
+	margin-top: 3em !important;
+	margin-bottom: 1em;
+}
+
+.section-header.intro-narrative {
+	margin-top: 0 !important;
+}
+
+.section-header h1 {
+	display: inline-block;
+	margin: 0 8px 8px 0;
+	font-size: 36px;
+}
+
+.intro-narrative p {
+	font-size: 110%;
+}
+
+.subheading {
+	color: #666;
+	font-size: 14px;
+}
+
+/* Support Section */
+.sort-by {
+	width: 156px;
+}
+.sort-by .btn-group {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.project-listing ul.thumbnails {
+	margin-left: 0;
+}
+
+.project-listing .thumbnails li {
+	margin-top: 1em;
+}
+
+.project-listing h5 {
+	font-size: 15px;
+}
+
+.project-listing .summary-description {
+	min-height: 150px;
+}
+
+.btn-vote {
+	display: block;
+}
+
+/* Apply Section */
+.download-info {
+	margin-top: 10px;
+}
+.project {
+	margin: 6px 0;
+}
+.project h2 {
+	line-height: 24px;
+	margin: 8px 0 4px 0;
+}
+.project img {
+	margin: 8px 10px 8px 8px;
+}
+
+.project p {
+	margin-top: 1em;
+}
+
+.apply-link {
+	display: block;
+	margin: 0;
+	padding: 0;
+	color: #444;
+}
+.apply-link:hover {
+	text-decoration: none;
+}
+.apply-link:hover h2 {
+	color: #005580;
+}
+
+/* Tagline */
+p.tagline {
+	text-align: center;
+	color: #888;
+	font-size: 200%;
+	margin: 3em 0 2em 0;
+}
+
+
+/* Media Queries */
+@media (max-width: 480px) {
+	.sort-by {
+		width: 108px;
+	}
+	.sort-by .btn-group {
+		display: block;
+	}
+	.project h2 {
+		font-size: 18px;
+	}
+}
+@media (max-width: 767px) {
+	.subheading {
+		display: block !important;
+	}
+}

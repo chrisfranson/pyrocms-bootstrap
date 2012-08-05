@@ -1,0 +1,56 @@
+<div class="site-header">
+
+	<div class="header-inner">
+
+		<div class="top-right pull-right">
+
+			<div class="btn-group user-dropdown pull-right">
+				<a href="#" data-toggle="dropdown" class="btn dropdown-toggle">
+					<i class="icon-user"></i>
+					<span class="user-dropdown-text">
+					{{ if user:logged_in }} {{ user:display_name }} {{ endif }}
+					</span>
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+
+			{{ if user:logged_in }}
+
+					<li><a href="{{ url:site }}edit-profile">Profile</a></li>
+
+					{{ if user:group == 'admin'  }}
+						<li><a href="{{ url:site }}admin" target="_blank">Admin</a></li>
+					{{ endif }}
+
+					<li><a href="{{ url:site }}users/logout">Log Out</a></li>
+
+			{{ else }}
+
+					<li><a href="{{ url:site }}users/login">Log In</a></li>
+					<li><a href="{{ url:site }}users/register">Sign Up</a></li>
+
+			{{ endif }}
+
+				</ul>
+			</div>
+
+			<form method="get" action="/search" class="pull-right">
+				<div class="input-append pull-right site-search">
+					<input type="text" name="q" placeholder="Search..." value="<?php if (isset($_GET['q'])) echo $_GET['q']; ?>" /><button class="btn add-on">
+						<i class="icon-search"></i>
+					</button>
+				</div>
+			</form>
+
+		</div>
+
+		<div class="brand-container">
+
+			<a class="brand" href="/">{{ settings:site_name }}</a>
+
+			<h2 class="slogan">{{ settings:site_slogan }}</h2>
+		</div>
+
+	</div>
+
+</div>
