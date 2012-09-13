@@ -61,6 +61,15 @@ class Theme_transform extends Theme {
 										'type'          => 'textarea',
 										'options'       => '',
 										'is_required'   => FALSE
+								   	),
+
+									'sitewide_js' => array(
+										'title'         => 'Site-wide JS',
+										'description'   => 'Custom JS that will be executed on every page on the site.',
+										'default'       => '',
+										'type'          => 'textarea',
+										'options'       => '',
+										'is_required'   => FALSE
 								   	)
 								);
 
