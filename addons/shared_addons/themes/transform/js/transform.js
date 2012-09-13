@@ -53,10 +53,10 @@ $(function(){
 
 	$('.user-dropdown .dropdown-toggle').dropdown();
 
-	$('.sticky').sticker({
+	$('.sticky-auto').sticker({
 		yOffset: 60,
 		stopper: 'footer',
-		revertLeft: 20
+		revertWindowWidth: 655
 	});
 
 	$('.sticky-nav').sticker({
