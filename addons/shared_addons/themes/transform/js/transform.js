@@ -40,7 +40,15 @@ $(function(){
 	);
 
 	setTimeout(function() {
-		$('div.alert').fadeOut('slow');
+		var $alert = $('div.alert');
+
+		$alert.find('a.close').fadeTo(200, 0); // This is a hack so that the close link fades out in IE
+		$alert.fadeTo(200, 0);
+		$alert.slideUp(400, function(){
+			$(window).trigger('notification-closed');
+			$alert.remove();
+		});
+
 	}, 4000);
 
 	$('.user-dropdown .dropdown-toggle').dropdown();
