@@ -6,21 +6,37 @@
 
 <base href="<?php echo base_url(); ?>" />
 
-<script type="text/javascript">
-	var APPPATH_URI = "/system/cms/";
-	var BASE_URI = "/";
-</script>
+<?php
+	$this->template->append_metadata('
+		<script type="text/javascript">
+			var APPPATH_URI = "'.APPPATH_URI.'";
+			var BASE_URI = "'.BASE_URI.'";
+		</script>', 'head');
 
-{{ template:metadata }}
+	$this->template->append_metadata('<link rel="canonical" href="'. site_url($this->uri->uri_string()).'" />', 'head');
+
+	if ($this->template->page)
+	{
+		// Append page metadata
+		$this->template->append_metadata('<meta name="keywords" content="'. Keywords::get_string($this->template->page->meta_keywords) .'" />', 'head');
+		$this->template->append_metadata('<meta name="description" content="'. $this->template->page->meta_description .'" />', 'head');
+		
+		// If this page has an RSS feed, show it
+		if ($this->template->page->rss_enabled)
+		{
+			$this->template->append_metadata('<link rel="alternate" type="application/rss+xml" title="'.$this->template->page->meta_title.'" href="'.site_url(uri_string().'.rss').'" />', 'head');
+		}
+	}
+
+	// If there is a blog module, link to its RSS feed in the head
+	if (module_exists('blog'))
+	{
+		$this->template->append_metadata('<link rel="alternate" type="application/rss+xml" title="'.$this->settings->site_name.'" href="'.site_url('blog/rss/all.rss').'" />', 'head');
+	}
+
+	echo $this->template->get_metadata('head');
+?>
+
+<script type="text/javascript">var SITE_URL = '{{ url:site }}';</script>
 
 <title>{{ settings:site_name }}&nbsp;&bull;&nbsp;{{ template:title }}</title>
-
-{{ if {url:segments segment="1"} == '' }}
-<meta property="fb:app_id"               content="">
-<meta property="og:type"                 content=""> 
-<meta property="og:url"                  content="">
-<meta property="og:site_name"            content="">
-<meta property="og:image"                content="">
-<meta property="og:description"          content="">
-<meta property="og:title"          		content="">
-{{ endif }}

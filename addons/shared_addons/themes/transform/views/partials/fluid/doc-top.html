@@ -11,21 +11,25 @@
 <link href='http://fonts.googleapis.com/css?family=Port+Lligat+Sans' rel='stylesheet' type='text/css'>
 {{ endif }}
 
-<!-- CSS Stylesheets -->
+<!-- CSS According to whether there's a site header above the nav -->
 {{ if theme:options:header == 'yes' }}
 {{ theme:css file="site-header.css" }}
 {{ else }}
 {{ theme:css file="no-site-header.css" }}
 {{ endif }}
 
+<!-- Site-wide Theme CSS -->
 {{ theme:css file="global.css" }}
 {{ theme:css file="color-schemes/bootstrap-{{ theme:options:colors }}.css" }}
 {{ theme:css file="bootstrap-responsive-custom.css" }}
 
+<!-- CSS for theme options -->
 <style>
+	{{ if theme:options:brand_font }}
 	a.brand {
-		{{ if theme:options:brand_font }} font-family: "{{ theme:options:brand_font }}"; {{ endif }}
+		font-family: "{{ theme:options:brand_font }}";
 	}
+	{{ endif }}
 
 	{{ if theme:options:header_color }}
 	.site-header {
@@ -45,11 +49,18 @@
 
 </style>
 
-<?php
-// if ($this->_ci_cached_vars['page']->css != '') {
-// 	echo "<style>\n", $this->_ci_cached_vars['page']->css, "\n</style>\n";
-// }
-?>
+<?php if ($this->template->page AND ($this->template->page->layout->css OR $this->template->page->css)): ?>
+
+<style type="text/css">
+<?php echo $page->layout->css; ?>
+
+<?php echo $page->css; ?>
+
+</style>
+
+<?php endif; ?>
+
+<?php echo Asset::render_css('module_css'); ?>
 
 <!-- Conditional Stylesheets for IE -->
 <!--[if IE 7 ]><link href="assets/ie-fixes/IE7.css" type="text/css" rel="stylesheet" /><![endif]-->
