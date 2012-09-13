@@ -9,6 +9,10 @@ a.brand img.logo {
 	margin: -8px 0;
 }
 
+ul.nav-tabs a {
+	outline: 0 !important;
+}
+
 /* For inputs with buttons attached to them (like the search input) */
 .input-append button.add-on {
     height: inherit !important;
